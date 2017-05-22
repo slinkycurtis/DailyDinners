@@ -6,4 +6,4 @@ block content
     ul
         each recipe, i in recipelist
             li
-                recipe.Title
+                a(href="#{recipe.RecipeID}")= recipe.Title
