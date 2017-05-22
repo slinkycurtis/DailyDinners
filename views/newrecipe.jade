@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1= title
+    form#formAddRecipe(name="addrecipe",method="post",action="/addrecipe")
+        input#inputRecipeID(type="text", placeholder="Recipe ID", name="RecipeID")
+        input#inputImage(type="text", placeholder="image reference", name="Image")
+        input#inputIngredient(type="text", placeholder="ingredient", name="Ingredient")
+        input#inputSecondary(type="text", placeholder="secondary", name="Secondary")
+        input#inputTitle(type="text", placeholder="title", name="Title")
+        input#inputServes(type="text", placeholder="serves", name="Serves")
+        input#inputDifficulty(type="text", placeholder="difficulty", name="Difficulty")
+        input#inputDiets(type="text", placeholder="diets", name="Diets")
+        input#inputTime(type="text", placeholder="time", name="Time")
+        input#inputID(type="text", placeholder="ID", name="ID")
+        button#btnSubmit(type="submit") submit

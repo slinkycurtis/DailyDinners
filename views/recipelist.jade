@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1.
+        Recipe List
+    ul
+        each recipe, i in recipelist
+            li
+                a(href="#{recipe.RecipeID}")= recipe.Title
