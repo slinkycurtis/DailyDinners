@@ -10,3 +10,7 @@ a {
 h1 {
 	color: #000000;
 }
+
+.pagination-class {
+  text-align: center;
+}
