@@ -1,16 +1,18 @@
 var express = require('express');
 var router = express.Router();
+var paginate = require('express-paginate');
+var pageLimit = 20;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/* GET Recipe list page. */
+/* GET Recipe list page.  */
 router.get('/recipelist', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
-    collection.find({},{},function(e,docs){
+    collection.find({},{ limit : pageLimit },function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
@@ -21,7 +23,7 @@ router.get('/recipelist', function(req, res) {
 router.get('/meat', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
-    collection.find({Diets: "meat"},{},function(e,docs){
+    collection.find({Diets: "meat"},{ limit : pageLimit },function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
@@ -32,7 +34,7 @@ router.get('/meat', function(req, res) {
 router.get('/vegetarian', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
-    collection.find({Diets: "vegetarian"},{},function(e,docs){
+    collection.find({Diets: "vegetarian"},{ limit : pageLimit },function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
@@ -43,7 +45,7 @@ router.get('/vegetarian', function(req, res) {
 router.get('/fish', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
-    collection.find({Diets: "fish"},{},function(e,docs){
+    collection.find({Diets: "fish"},{ limit : pageLimit },function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
@@ -54,7 +56,7 @@ router.get('/fish', function(req, res) {
 router.get('/dairy', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
-    collection.find({Diets: "dairy"},{},function(e,docs){
+    collection.find({Diets: "dairy"},{ limit : pageLimit },function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
@@ -66,7 +68,7 @@ router.get('/sweet', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
     //collection.find({Type: "dessert"},{},function(e,docs){
-    collection.find( { "Type" : { $in: ["dessert", "cake"] } } ,{},function(e,docs){
+    collection.find( { "Type" : { $in: ["dessert", "cake"] } } ,{ limit : pageLimit },function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
@@ -124,5 +126,6 @@ router.post('/addrecipe', function(req, res) {
         }
     });
 });
+
 
 module.exports = router;

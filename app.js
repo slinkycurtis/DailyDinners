@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 // New Code
 var mongo = require('mongodb');
 var monk = require('monk');
+var paginate = require('express-paginate');
+
 var url = process.env.MONGOLAB_URI;
 
 if (url == null){
@@ -16,6 +18,27 @@ if (url == null){
 
 //var db = monk('mongodb://heroku_n6tkc1zm:pcif411lc8v9sf1jdag1aogkmg@ds149511.mlab.com:49511/heroku_n6tkc1zm');
 var db = monk(url);
+//mongoose.connect(url);
+//var db = mongoose.connection;
+
+// Define schema
+/*var Schema = mongoose.Schema;
+
+var recipeModelSchema = new Schema ({
+	recipeID: String,
+	recipeImage: String,
+	recipeIngredient: String,
+	recipeSecondary: String,
+	recipeTitle: String,
+	recipeType: String,
+	recipeServes: { type: Number, min: 1, max: 16 },
+	recipeDifficulty: String,
+	recipeDiets: String,
+	recipeTime: String,
+	recipeID: String
+});
+
+module.exports = mongoose.model('Recipes', recipeModelSchema);*/
 
 var index = require('./routes/index');
 
@@ -29,7 +52,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
