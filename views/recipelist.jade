@@ -14,7 +14,7 @@ html( lang="en" )
             thead
                 tr
                     th Title
-                    th Serves
+                    th Type
                     th Difficulty
                     th Diet
                     th Time
@@ -23,7 +23,7 @@ html( lang="en" )
                     tr
                         td
                             a(href="http://www.dailydinners.co.uk/#{recipe.RecipeID}.html")= recipe.Title
-                        td= recipe.Serves 
+                        td= recipe.Type 
                         td= recipe.Difficulty
                         td= recipe.Diets
                         td= recipe.Time

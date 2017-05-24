@@ -28,7 +28,7 @@ router.get('/meat', function(req, res) {
     });
 });
 
-/* GET Recipe list page for Meat. */
+/* GET Recipe list page for vegetarians. */
 router.get('/vegetarian', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
@@ -39,7 +39,7 @@ router.get('/vegetarian', function(req, res) {
     });
 });
 
-/* GET Recipe list page for Meat. */
+/* GET Recipe list page for fish. */
 router.get('/fish', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
@@ -50,11 +50,22 @@ router.get('/fish', function(req, res) {
     });
 });
 
-/* GET Recipe list page for Meat. */
+/* GET Recipe list page for dairy. */
 router.get('/dairy', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
     collection.find({Diets: "dairy"},{},function(e,docs){
+        res.render('recipelist', {
+            "recipelist" : docs
+        });
+    });
+});
+
+/* GET Recipe list page for desert. */
+router.get('/sweet', function(req, res) {
+    var db = req.db;
+    var collection = db.get('recipes');
+    collection.find({Type: "dessert"},{},function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
@@ -78,6 +89,7 @@ router.post('/addrecipe', function(req, res) {
     var recipeIngredient = req.body.Ingredient;
     var recipeSecondary = req.body.Secondary;
     var recipeTitle = req.body.Title;
+    var recipeType = req.body.Type;
     var recipeServes = req.body.Serves;
     var recipeDifficulty = req.body.Difficulty;
     var recipeDiets = req.body.Diets;
@@ -94,6 +106,7 @@ router.post('/addrecipe', function(req, res) {
         "Ingredient" : recipeIngredient,
         "Secondary" : recipeSecondary,
         "Title" : recipeTitle,
+        "Type" : recipeType,
         "Serves" : recipeServes,
         "Difficulty" : recipeDifficulty,
         "Diets" : recipeDiets,
