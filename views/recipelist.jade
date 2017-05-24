@@ -1,26 +1,31 @@
-extends layout
+include mixins
+doctype
+html( lang="en" )
+    include head
+    body(style="padding-bottom:10rem;")
+    include nav
+    .container
+      block content
+        .jumbotron
+            h1 Recipe List
+            p Here you can find some of the best recipes available today, easilly categorised based on diet, time and difficulty
 
-block content
-    div.top
-        h1.
-            Recipe List
+        table.table.table-striped
+            thead
+                tr
+                    th Title
+                    th Serves
+                    th Difficulty
+                    th Time
+            tbody
+                each recipe, i in recipelist
+                    tr
+                        td
+                            a(href="http://www.dailydinners.co.uk/#{recipe.RecipeID}.html")= recipe.Title
+                        td= recipe.Serves 
+                        td= recipe.Difficulty
+                        td= recipe.Time
 
-        div.container
-            div.content
-                table.table.table-striped
-                    thead
-                        tr
-                            th Title
-                            th Serves
-                            th Difficulty
-                            th Time
-                    tbody
-                        each recipe, i in recipelist
-                            tr
-                                td
-                                    a(href="http://www.dailydinners.co.uk/#{recipe.RecipeID}.html")= recipe.Title
-                                td= recipe.Serves 
-                                td= recipe.Difficulty
-                                td= recipe.Time
-    div.footer
+include footer
+
 

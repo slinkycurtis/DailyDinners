@@ -1,0 +1,16 @@
+.container
+    +nav("Daily Dinners", "dropdown_menu", "inverse")
+        +nav_item( "index.html", "active") Home
+        +nav_item_dropdown( "#" )( label="Recipes" )
+            +nav_item ( "/recipelist" ) All
+            +nav_item ( "#" ) Occasions
+            +nav_item ( "#" ) Recipe Search
+        +nav_item_dropdown( "#" )( label="Special Diets" )
+            +nav_item ( "#" ) Meat
+            +nav_item ( "#" ) Vegetarian
+            +nav_item ( "#" ) Fish
+            +nav_item ( "#" ) Dairy
+        +nav_item( "#" ) Sweets
+        +nav_item_dropdown( "#" )( label="About Us" )
+            +nav_item ( "#" ) Facebook
+            +nav_item ( "#" ) Twitter

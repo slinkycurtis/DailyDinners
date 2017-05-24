@@ -22,6 +22,11 @@ router.get('/newrecipe', function(req, res) {
     res.render('newrecipe', { title: 'Add New Recipe' });
 });
 
+/* GET New Template page. */
+router.get('/template', function(req, res) {
+    res.render('template', { title: 'Welcome to Daily Dinners' });
+});
+
 /* POST to Add Recipe Service */
 router.post('/addrecipe', function(req, res) {
 
