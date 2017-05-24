@@ -17,14 +17,53 @@ router.get('/recipelist', function(req, res) {
     });
 });
 
+/* GET Recipe list page for Meat. */
+router.get('/meat', function(req, res) {
+    var db = req.db;
+    var collection = db.get('recipes');
+    collection.find({Diets: "meat"},{},function(e,docs){
+        res.render('recipelist', {
+            "recipelist" : docs
+        });
+    });
+});
+
+/* GET Recipe list page for Meat. */
+router.get('/vegetarian', function(req, res) {
+    var db = req.db;
+    var collection = db.get('recipes');
+    collection.find({Diets: "vegetarian"},{},function(e,docs){
+        res.render('recipelist', {
+            "recipelist" : docs
+        });
+    });
+});
+
+/* GET Recipe list page for Meat. */
+router.get('/fish', function(req, res) {
+    var db = req.db;
+    var collection = db.get('recipes');
+    collection.find({Diets: "fish"},{},function(e,docs){
+        res.render('recipelist', {
+            "recipelist" : docs
+        });
+    });
+});
+
+/* GET Recipe list page for Meat. */
+router.get('/dairy', function(req, res) {
+    var db = req.db;
+    var collection = db.get('recipes');
+    collection.find({Diets: "dairy"},{},function(e,docs){
+        res.render('recipelist', {
+            "recipelist" : docs
+        });
+    });
+});
+
 /* GET New Recipe page. */
 router.get('/newrecipe', function(req, res) {
     res.render('newrecipe', { title: 'Add New Recipe' });
-});
-
-/* GET New Template page. */
-router.get('/template', function(req, res) {
-    res.render('template', { title: 'Welcome to Daily Dinners' });
 });
 
 /* POST to Add Recipe Service */

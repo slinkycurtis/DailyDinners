@@ -16,7 +16,6 @@ html( lang="en" )
                     th Title
                     th Serves
                     th Difficulty
-                    th Diet
                     th Time
             tbody
                 each recipe, i in recipelist
@@ -25,7 +24,6 @@ html( lang="en" )
                             a(href="http://www.dailydinners.co.uk/#{recipe.RecipeID}.html")= recipe.Title
                         td= recipe.Serves 
                         td= recipe.Difficulty
-                        td= recipe.Diets
                         td= recipe.Time
 
 include footer
