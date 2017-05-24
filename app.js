@@ -9,7 +9,11 @@ var bodyParser = require('body-parser');
 var mongo = require('mongodb');
 var monk = require('monk');
 var url = process.env.MONGOLAB_URI;
-//var db = monk('localhost:27017/nodetest1');
+
+if (url == null){
+    url = 'localhost:27017/nodetest1';
+}
+
 //var db = monk('mongodb://heroku_n6tkc1zm:pcif411lc8v9sf1jdag1aogkmg@ds149511.mlab.com:49511/heroku_n6tkc1zm');
 var db = monk(url);
 
