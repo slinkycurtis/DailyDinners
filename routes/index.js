@@ -65,7 +65,8 @@ router.get('/dairy', function(req, res) {
 router.get('/sweet', function(req, res) {
     var db = req.db;
     var collection = db.get('recipes');
-    collection.find({Type: "dessert"},{},function(e,docs){
+    //collection.find({Type: "dessert"},{},function(e,docs){
+    collection.find( { "Type" : { $in: ["dessert", "cake"] } } ,{},function(e,docs){
         res.render('recipelist', {
             "recipelist" : docs
         });
