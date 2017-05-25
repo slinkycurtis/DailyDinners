@@ -23,7 +23,7 @@ html( lang="en" )
                 each recipe, i in recipelist
                     tr
                         td
-                            img(src="./images/thumbs/#{recipe.RecipeID}th.jpg").img-rounded.img-responsive
+                            img(src="./images/thumbs/#{recipe.Image}.jpg").img-rounded.img-responsive
                         td
                             a(href="http://www.dailydinners.co.uk/#{recipe.RecipeID}.html")= recipe.Title
                         td= recipe.Type 
