@@ -8,6 +8,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* GET contact page. */
+router.get('/contact', function(req, res, next) {
+  res.render('contact', { title: 'Contact Us' });
+});
+
+
 /* GET Recipe list page.  */
 router.get('/recipelist', function(req, res) {
     var db = req.db;

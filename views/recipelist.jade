@@ -13,6 +13,7 @@ html( lang="en" )
         table.table.table-striped
             thead
                 tr
+                    th Image
                     th Title
                     th Type
                     th Difficulty
@@ -21,6 +22,8 @@ html( lang="en" )
             tbody
                 each recipe, i in recipelist
                     tr
+                        td
+                            img(src="./images/thumbs/#{recipe.RecipeID}th.jpg").img-rounded.img-responsive
                         td
                             a(href="http://www.dailydinners.co.uk/#{recipe.RecipeID}.html")= recipe.Title
                         td= recipe.Type 
