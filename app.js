@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 // New Code
 var mongo = require('mongodb');
 var monk = require('monk');
-var paginate = require('express-paginate');
 
 var url = process.env.MONGOLAB_URI;
 
