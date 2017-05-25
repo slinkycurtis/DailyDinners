@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var paginate = require('express-paginate');
 var pageLimit = 20;
+var pageview = 0;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -17,10 +18,11 @@ router.get('/contact', function(req, res, next) {
 /* GET Recipe list page.  */
 router.get('/recipelist', function(req, res) {
     var db = req.db;
+    var page = req.query.page - 1;
     var collection = db.get('recipes');
-    collection.find({},{ limit : pageLimit },function(e,docs){
+    collection.find({},{ limit : pageLimit, skip : page*20 },function(e,docs){
         res.render('recipelist', {
-            "recipelist" : docs
+            "recipelist" : docs, pageview : req.query.page
         });
     });
 });

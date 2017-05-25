@@ -10,6 +10,50 @@ html( lang="en" )
             h1 Recipe List
             p Here you can find some of the best recipes available today, easilly categorised based on diet, time and difficulty
 
+        div.text-center
+            ul.pagination.pagination-lg
+                - if(pageview==1) 
+                    li.disabled
+                        a(href="#") &laquo;
+                - else
+                    li
+                        a(href="/recipelist?page=#{pageview -1}") &laquo;
+                - if(pageview==1)
+                    li.page-item.active 
+                        a(href="/recipelist?page=1") 1
+                - else
+                    li
+                        a(href="/recipelist?page=1") 1
+                - if(pageview==2)
+                    li.page-item.active
+                        a(href="/recipelist?page=2") 2
+                - else
+                    li
+                        a(href="/recipelist?page=2") 2
+                - if(pageview==3)
+                    li.page-item.active
+                        a(href="/recipelist?page=3") 3
+                - else
+                    li
+                        a(href="/recipelist?page=3") 3
+                - if(pageview==4)
+                    li.page-item.active
+                        a(href="/recipelist?page=4") 4
+                - else
+                    li
+                        a(href="/recipelist?page=4") 4
+                - if(pageview==5)
+                    li.page-item.active
+                        a(href="/recipelist?page=5") 5
+                - else
+                    li
+                        a(href="/recipelist?page=5") 5
+                - if(pageview==5)
+                    li.disabled
+                        a(href="#") &raquo;
+                - else
+                    li
+                        a(href="/recipelist?page=#{pageview +1}") &raquo;
         table.table.table-striped
             thead
                 tr
@@ -32,18 +76,48 @@ html( lang="en" )
                         td= recipe.Time
         div.text-center
             ul.pagination.pagination-lg
-                li 
-                    a &laquo;
-                li.page-item.active 
-                    a 1
-                li 
-                    a 2
-                li 
-                    a 3
-                li 
-                    a 4
-                li 
-                    a &raquo;
+                - if(pageview==1) 
+                    li.disabled
+                        a(href="#") &laquo;
+                - else
+                    li
+                        a(href="/recipelist?page=#{pageview -1}") &laquo;
+                - if(pageview==1)
+                    li.page-item.active 
+                        a(href="/recipelist?page=1") 1
+                - else
+                    li
+                        a(href="/recipelist?page=1") 1
+                - if(pageview==2)
+                    li.page-item.active
+                        a(href="/recipelist?page=2") 2
+                - else
+                    li
+                        a(href="/recipelist?page=2") 2
+                - if(pageview==3)
+                    li.page-item.active
+                        a(href="/recipelist?page=3") 3
+                - else
+                    li
+                        a(href="/recipelist?page=3") 3
+                - if(pageview==4)
+                    li.page-item.active
+                        a(href="/recipelist?page=4") 4
+                - else
+                    li
+                        a(href="/recipelist?page=4") 4
+                - if(pageview==5)
+                    li.page-item.active
+                        a(href="/recipelist?page=5") 5
+                - else
+                    li
+                        a(href="/recipelist?page=5") 5
+                - if(pageview==5)
+                    li.disabled
+                        a(href="#") &raquo;
+                - else
+                    li
+                        a(href="/recipelist?page=#{pageview +1}") &raquo;
 
 include footer
 
