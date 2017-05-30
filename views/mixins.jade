@@ -98,3 +98,28 @@ mixin listText
 
 mixin bootswatch(theme)
     link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/" + theme + "/bootstrap.min.css", rel="stylesheet")
+
+mixin pagination(start, numPages, curr, base)
+        - start    = start    || 1
+        - numPages = numPages || 10
+        - curr     = curr     || 1
+        - base     = base     || '#' 
+        - next     = curr
+        - next ++
+        ul.pagination
+            - if(curr==1) 
+                li.disabled
+                    a(href='#') &laquo;
+            - else
+                li
+                    a(href='#{base}?page=#{curr-1}') &laquo;
+            - for(var i=start;i<start+numPages;i++) {
+                - if(i==curr)
+                    li.page-item.active
+                        a(href='#{base}?page=#{i}') #{i}
+                - else
+                    li
+                        a(href='#{base}?page=#{i}') #{i}
+            - }
+            li
+                a(href='#{base}?page=#{next}') &raquo;

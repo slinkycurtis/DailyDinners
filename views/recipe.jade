@@ -1,0 +1,26 @@
+include mixins
+doctype
+html( lang="en" )
+    include head
+    body(style="padding-bottom:10rem;")
+    include nav
+    .container
+      block content
+        .jumbotron
+            h1 Recipe List
+            p Here you can find some of the best recipes available today, easilly categorised based on diet, time and difficulty
+
+                each recipeItem, i in recipe
+                    p= recipeItem.url
+                    - recipeList = recipeItem.Ingredients
+                    - recipeList = recipeList.replace(/;/g, '<br>')
+                    p!= recipeList
+                    - recipeInstructions = recipeItem.Instructions
+                    - recipeInstructions = recipeInstructions.replace(/\n \n/g, '<br>')
+                    p!= recipeInstructions 
+                    p Our rating:&nbsp;
+                        img(src="./images/#{recipeItem.Ratings_alt}.png")
+
+include footer
+
+

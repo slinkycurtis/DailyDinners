@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var paginate = require('express-paginate');
+//Number of recipes to display each page
 var pageLimit = 20;
 var pageview = 0;
+var recipeCount = 600;
+//var items = 0;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -22,7 +25,7 @@ router.get('/recipelist', function(req, res) {
     var collection = db.get('recipes');
     collection.find({},{ limit : pageLimit, skip : page*20 },function(e,docs){
         res.render('recipelist', {
-            "recipelist" : docs, pageview : req.query.page
+            "recipelist" : docs, pageview : req.query.page, items : recipeCount
         });
     });
 });
@@ -82,6 +85,18 @@ router.get('/sweet', function(req, res) {
         });
     });
 });
+
+/* GET Recipe Details page for an individual recipe. */
+router.get('/recipe', function(req, res) {
+    var db = req.db;
+    var collection = db.get('fullrecipe');
+    collection.find({ "url" : "http://www.dailydinners.co.uk/Recip-599.html"},{},function(e,docs){
+        res.render('recipe', {
+            "recipe" : docs
+        });
+    });
+});
+
 
 /* GET New Recipe page. */
 router.get('/newrecipe', function(req, res) {
