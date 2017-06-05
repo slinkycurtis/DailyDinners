@@ -4,23 +4,51 @@ html( lang="en" )
     include head
     body(style="padding-bottom:10rem;")
     include nav
-    .container
-      block content
-        .jumbotron
-            h1 Recipe List
-            p Here you can find some of the best recipes available today, easilly categorised based on diet, time and difficulty
+    div.container-fluid
+        div.content-wrapper
+            div.item-container
+                div.container
+                    div.col-md-12
+                        each recipeItem, i in recipe
+                            div.product.col-md-6.service-image-left
+                                center
+                                    +productImage(recipeItem.title)
+                                
+                            div.col-md-6
+                                div.product-title=recipeItem.title
+                                hr
+                                div.product-title Ingredients
+                                br
+                                div.product-desc 
+                                    - recipeList = recipeItem.ingredients
+                                    - recipeList = recipeList.replace(/;/g, '<br>')
+                                    - recipeInstructions = recipeItem.instructions
+                                    - recipeInstructions = recipeInstructions.replace(/\n \n/g, '<br>')
+                                    p!= recipeList
+                                div.product-rating 
+                                    +ratings(recipeItem.mealRatings)
 
-                each recipeItem, i in recipe
-                    p= recipeItem.url
-                    - recipeList = recipeItem.Ingredients
-                    - recipeList = recipeList.replace(/;/g, '<br>')
-                    p!= recipeList
-                    - recipeInstructions = recipeItem.Instructions
-                    - recipeInstructions = recipeInstructions.replace(/\n \n/g, '<br>')
-                    p!= recipeInstructions 
-                    p Our rating:&nbsp;
-                        img(src="./images/#{recipeItem.Ratings_alt}.png")
+                                    hr
+                                    div.btn-group.Wishlist
+                                        button.btn.btn-success Add to Wishlist
 
+
+                div.container-fluid
+                    div.ol-md-12.product-info
+                        ul#myTab.nav.nav-tabs.nav_tabs
+                            li.active
+                                a(href="#service-one" data-toggle="tab") INSTRUCTIONS
+                            li
+                                a(href="#service-two" data-toggle="tab") NUTRITIONAL INFO
+                            li
+                                a(href="#service-three" data-toggle="tab") REVIEWS
+                        div#myTabContent.tab-content
+                            div#service-one.tab-pane.fade.in.active
+                                section.container.product-info
+                                    span!= recipeInstructions
+                            div#service-two.tab-pane.fade
+                                section.container
+                            div#service-three.tab-pane.fade
+                                section.container
+                        hr
 include footer
-
-

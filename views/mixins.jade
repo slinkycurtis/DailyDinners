@@ -99,6 +99,24 @@ mixin listText
 mixin bootswatch(theme)
     link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/" + theme + "/bootstrap.min.css", rel="stylesheet")
 
+mixin productImage(title)
+    - imageLinkLower = title.toLowerCase()
+    - imageLinkFormatted = imageLinkLower.replace(/ /g, '_')
+    - imageLinkFormatted = imageLinkFormatted.replace('and_', '')
+    - imageLinkFormatted = imageLinkFormatted.replace('with_', '')
+    - imageLinkFormatted = imageLinkFormatted.replace('&_', '')
+    - imageLinkFormatted = imageLinkFormatted.replace(',', '')
+    img#item-display(src="./images/Products/#{imageLinkFormatted}.jpg")
+
+mixin ratings(ratingValue)
+    - formatRating = ratingValue.substr(ratingValue.length - 1)
+    - for(var i=0;i<formatRating;i++) {
+        i.fa.fa-star.gold
+        - }
+    - for(var j=i;j<5;j++) {
+        i.fa.fa-star-o
+        - }
+
 mixin pagination(start, numPages, curr, base)
         - start    = start    || 1
         - numPages = numPages || 10

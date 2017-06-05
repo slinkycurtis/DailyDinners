@@ -27,7 +27,8 @@ html( lang="en" )
                         td
                             img(src="./images/thumbs/#{recipe.Image}.jpg").img-rounded.img-responsive
                         td
-                            a(href="http://www.dailydinners.co.uk/#{recipe.RecipeID}.html")= recipe.Title
+                            - recipeString = recipe.RecipeID.substr(6)
+                            a(href="/recipe?recipe=#{recipeString}")= recipe.Title
                         td= recipe.Type 
                         td= recipe.Difficulty
                         td= recipe.Diets

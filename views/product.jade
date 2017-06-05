@@ -1,0 +1,53 @@
+include mixins
+doctype
+html( lang="en" )
+	include head
+	body(style="padding-bottom:10rem;")
+	include nav
+	div.container-fluid
+		div.content-wrapper
+			div.item-container
+				div.container
+					div.col-md-12
+						each recipeItem, i in recipe
+						div.product.col-md-3.service-image-left
+							center
+								img#item-display(src="../Products/dorset_apple_traybake.jpg")
+						
+						div.container.service1-items.col-sm-2.col-md-2.pull-left
+							
+						div.col-md-7
+							div.product-title Corsair GS600 600 Watt PSU
+							div.product-desc The Corsair Gaming Series GS600 is the ideal price/performance choice for mid-spec gaming PC
+							div.product-rating 
+								i.fa.fa-star.gold
+								i.fa.fa-star.gold
+								i.fa.fa-star.gold
+								i.fa.fa-star.gold
+								i.fa.fa-star-o
+								hr
+								div.product-price $1234
+								div.product-stock In stock
+								hr
+								div.btn-group.Wishlist
+									button.btn.btn-success Add to Wishlist
+
+
+			div.container-fluid
+				div.ol-md-12.product-info
+					ul#myTab.nav.nav-tabs.nav_tabs
+						li.active
+							a(href="#service-one" data-toggle="tab") DESCRIPTION
+						li
+							a(href="#service-two" data-toggle="tab") PRODUCT INFO
+						li
+							a(href="#service-three" data-toggle="tab") REVIEWS
+					div#myTabContent.tab-content
+						div#service-one.tab-pane.fade.in.active
+							section.container.product-info
+								The Corsair Gaming Series GS600 power supply is the ideal price-performance solution for building or upgrading a Gaming PC. A single +12V rail provides up to 48A of reliable, continuous power for multi-core gaming PCs with multiple graphics cards. The ultra-quiet, dual ball-bearing fan automatically adjusts its speed according to temperature, so it will never intrude on your music and games. Blue LEDs bathe the transparent fan blades in a cool glow. Not feeling blue? You can turn off the lighting with the press of a button.
+						div#service-two.tab-pane.fade
+							section.container
+						div#service-three.tab-pane.fade
+							section.container
+					hr

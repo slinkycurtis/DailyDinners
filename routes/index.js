@@ -12,6 +12,11 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* GET product page. */
+router.get('/product', function(req, res, next) {
+  res.render('product', { title: 'Express' });
+});
+
 /* GET contact page. */
 router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact Us' });
@@ -89,14 +94,15 @@ router.get('/sweet', function(req, res) {
 /* GET Recipe Details page for an individual recipe. */
 router.get('/recipe', function(req, res) {
     var db = req.db;
+    var recipeID = req.query.recipe;
     var collection = db.get('fullrecipe');
-    collection.find({ "url" : "http://www.dailydinners.co.uk/Recip-599.html"},{},function(e,docs){
+    console.log("recipeID = " + recipeID);
+    collection.find({ "url" : "http://www.dailydinners.co.uk/Recip-" + recipeID + ".html"},{},function(e,docs){
         res.render('recipe', {
             "recipe" : docs
         });
     });
 });
-
 
 /* GET New Recipe page. */
 router.get('/newrecipe', function(req, res) {
