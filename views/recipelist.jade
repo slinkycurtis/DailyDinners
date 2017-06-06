@@ -11,7 +11,7 @@ html( lang="en" )
             p Here you can find some of the best recipes available today, easilly categorised based on diet, time and difficulty
 
         div.text-center
-            +pagination(1, 10, pageview, '/recipelist')
+            +pagination(1, items/50, pageview, '/recipelist')
         table.table.table-striped
             thead
                 tr
@@ -34,7 +34,7 @@ html( lang="en" )
                         td= recipe.Diets
                         td= recipe.Time
         div.text-center
-            +pagination(1, 10, pageview, '/recipelist')
+            +pagination(1, items/50, pageview, '/recipelist')
 
 include footer
 

@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var paginate = require('express-paginate');
+
 //Number of recipes to display each page
-var pageLimit = 20;
-var pageview = 0;
+var pageLimit = 50;
 var recipeCount = 600;
+
+var async = require('async');
 //var items = 0;
 
 /* GET home page. */
@@ -28,9 +29,9 @@ router.get('/recipelist', function(req, res) {
     var db = req.db;
     var page = req.query.page - 1;
     var collection = db.get('recipes');
-    collection.find({},{ limit : pageLimit, skip : page*20 },function(e,docs){
+    collection.find({},{ limit : pageLimit, skip : page*50 },function(e,docs){
         res.render('recipelist', {
-            "recipelist" : docs, pageview : req.query.page, items : recipeCount
+            "recipelist" : docs, "pageview" : req.query.page, "items" : recipeCount
         });
     });
 });
@@ -96,18 +97,17 @@ router.get('/recipe', function(req, res) {
     var db = req.db;
     var recipeID = req.query.recipe;
     var collection = db.get('fullrecipe');
+    var recipeAttributes = db.get('recipes');
     console.log("recipeID = " + recipeID);
+    var recipeDetails = "Paul Rocks";
+    console.log("recipeJSON = " + recipeDetails);
     collection.find({ "url" : "http://www.dailydinners.co.uk/Recip-" + recipeID + ".html"},{},function(e,docs){
         res.render('recipe', {
-            "recipe" : docs
+            "recipe" : docs, "details" : recipeDetails
         });
     });
 });
 
-/* GET New Recipe page. */
-router.get('/newrecipe', function(req, res) {
-    res.render('newrecipe', { title: 'Add New Recipe' });
-});
 
 /* POST to Add Recipe Service */
 router.post('/addrecipe', function(req, res) {
