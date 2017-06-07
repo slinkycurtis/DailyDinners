@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var dataAccess = require('../public/javascripts/dataObjects.js');
 
 //Number of recipes to display each page
 var pageLimit = 50;
-var recipeCount = 600;
 
 var async = require('async');
 //var items = 0;
@@ -29,9 +29,14 @@ router.get('/recipelist', function(req, res) {
     var db = req.db;
     var page = req.query.page - 1;
     var collection = db.get('recipes');
-    collection.find({},{ limit : pageLimit, skip : page*50 },function(e,docs){
-        res.render('recipelist', {
-            "recipelist" : docs, "pageview" : req.query.page, "items" : recipeCount
+    var recipeNo = collection.count({});   
+
+    recipeNo.then(function(recipeCount) {
+        console.log('recipe count: ' +  recipeCount);
+        collection.find({},{ limit : pageLimit, skip : page*50 },function(e,docs){
+            res.render('recipelist', {
+                "recipelist" : docs, "pageview" : req.query.page, "items" : recipeCount
+            });
         });
     });
 });
