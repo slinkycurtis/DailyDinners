@@ -12,26 +12,31 @@ html( lang="en" )
                         each recipeItem, i in recipe
                             div.product.col-md-6.service-image-left
                                 center
-                                    +productImage(recipeItem.title)
+                                    +productImage(recipeItem.Title)
                                 div
                                
-                             div.col-md-6
-                                div.product-title=recipeItem.title
+                             div.col-md-4
+                                div.product-title=recipeItem.Title
                                 hr
                                 div.product-title Ingredients
                                 br
                                 div.product-desc 
-                                    - recipeList = recipeItem.ingredients
+                                    - recipeList = recipeItem.Ingredients
                                     - recipeList = recipeList.replace(/;/g, '<br>')
-                                    - recipeInstructions = recipeItem.instructions
+                                    - recipeInstructions = recipeItem.Instructions
                                     - recipeInstructions = recipeInstructions.replace(/\n \n/g, '<br>')
                                     p!= recipeList
                                 div.product-rating 
-                                    +ratings(recipeItem.mealRatings)
+                                    +ratings(recipeItem.Ratings_alt)
 
                                     hr
                                     div.btn-group.Wishlist
                                         button.btn.btn-success Add to Wishlist
+                            div.col-md-2
+                                div
+                                    p Prep time: #{recipeItem.Time}
+                                    p Serves: #{recipeItem.Serves}
+                                    p Difficulty: #{recipeItem.Difficulty}
 
 
                 div.container-fluid

@@ -28,7 +28,7 @@ router.get('/contact', function(req, res, next) {
 router.get('/recipelist', function(req, res) {
     var db = req.db;
     var page = req.query.page - 1;
-    var collection = db.get('recipes');
+    var collection = db.get('CompleteRecipe');
     var recipeNo = collection.count({});   
 
     recipeNo.then(function(recipeCount) {
@@ -101,12 +101,12 @@ router.get('/sweet', function(req, res) {
 router.get('/recipe', function(req, res) {
     var db = req.db;
     var recipeID = req.query.recipe;
-    var collection = db.get('fullrecipe');
+    var collection = db.get('CompleteRecipe');
     var recipeAttributes = db.get('recipes');
     console.log("recipeID = " + recipeID);
     var recipeDetails = "Paul Rocks";
     console.log("recipeJSON = " + recipeDetails);
-    collection.find({ "url" : "http://www.dailydinners.co.uk/Recip-" + recipeID + ".html"},{},function(e,docs){
+    collection.find({ "RecipeID" : "Recip-" + recipeID},{},function(e,docs){
         res.render('recipe', {
             "recipe" : docs, "details" : recipeDetails
         });

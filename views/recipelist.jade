@@ -7,10 +7,12 @@ html( lang="en" )
     .container
       block content
         .jumbotron
-            h1 Recipe List - number found = #{items}
+            h1 Recipe List
             p Here you can find some of the best recipes available today, easilly categorised based on diet, time and difficulty
 
         div.text-center
+            p
+                i #{items} recipes returned
             +pagination(1, items/50, pageview, '/recipelist')
         table.table.table-striped
             thead
