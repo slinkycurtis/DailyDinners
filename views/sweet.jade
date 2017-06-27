@@ -7,8 +7,10 @@ html( lang="en" )
     .container
       block content
         .jumbotron.sweet-banner
-            h1 Sweet Selection
-            p Have a bit of a sweet tooth and fancy something a bit different?  Choose from our selection of enticing deserts!
+            h1 
+                span Sweet Selection
+            p
+                span.sub-heading Have a bit of a sweet tooth and fancy something a bit different?  Choose from our selection of enticing deserts!
 
         div.text-center
             +pagination(1, items/50, pageview, '/recipelist')
