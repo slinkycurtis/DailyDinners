@@ -162,13 +162,17 @@ h1 {
 	max-height: 200px;
 }
 
+.img-panel-small {
+	max-height: 100px;
+}
+
 .img-thumb {
 	float: left;
 	padding: 10px;
 	vertical-align: top;
 }
 
-.jumbotron {
+.home-banner {
     margin-bottom: 0px;
     background-image: url(../images/homepage-bg-banner.jpg);
     background-position: 0% 25%;
@@ -176,4 +180,26 @@ h1 {
     background-repeat: no-repeat;
     color: white;
     //text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.sweet-banner {
+    margin-bottom: 0px;
+    background-image: url(../images/sweet-bg-banner.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    //text-shadow: black 0.3em 0.3em 0.3em;
+}
+
+.main-panel {
+	min-height: 190px;
+}
+
+.sub-section {
+	min-height: 50px;
+}
+
+.small-panel {
+	min-height: 100px;
 }

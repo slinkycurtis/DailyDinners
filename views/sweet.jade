@@ -1,0 +1,41 @@
+include mixins
+doctype
+html( lang="en" )
+    include head
+    body(style="padding-bottom:10rem;")
+    include nav
+    .container
+      block content
+        .jumbotron.sweet-banner
+            h1 Sweet Selection
+            p Have a bit of a sweet tooth and fancy something a bit different?  Choose from our selection of enticing deserts!
+
+        div.text-center
+            +pagination(1, items/50, pageview, '/recipelist')
+        table.table.table-striped
+            thead
+                tr
+                    th Image
+                    th Title
+                    th Type
+                    th Difficulty
+                    th Diet
+                    th Time
+            tbody
+                each recipe, i in recipelist
+                    tr
+                        td
+                            img(src="./images/thumbs/#{recipe.Image}.jpg").img-rounded.img-responsive
+                        td
+                            - recipeString = recipe.RecipeID.substr(6)
+                            a(href="/recipe?recipe=#{recipeString}")= recipe.Title
+                        td= recipe.Type 
+                        td= recipe.Difficulty
+                        td= recipe.Diets
+                        td= recipe.Time
+        div.text-center
+            +pagination(1, items/50, pageview, '/recipelist')
+
+include footer
+
+

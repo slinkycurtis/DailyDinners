@@ -91,7 +91,7 @@ router.get('/sweet', function(req, res) {
     var collection = db.get('recipes');
     //collection.find({Type: "dessert"},{},function(e,docs){
     collection.find( { "Type" : { $in: ["dessert", "cake"] } } ,{ limit : pageLimit },function(e,docs){
-        res.render('recipelist', {
+        res.render('sweet', {
             "recipelist" : docs
         });
     });

@@ -6,70 +6,106 @@ html( lang="en" )
     include nav
     .container
       block content
-        .jumbotron
+        .jumbotron.home-banner
             h1 Welcome to Daily Dinners
             p Here you can find some of the best recipes available today, easilly categorised based on diet, time and difficulty
             p: +button("primary", "/recipelist?page=1", "large") View Recipes
         .row
             .col-md-3.col-sm-6.col-xs-12
-                +panel("Eton Mess Revisited", "primary")
-                  div.imagewrapper
+                +panel("Eton Mess Revisited", "success")
+                  div.imagewrapper.main-panel
                     img(src="./images/products/cheese_burgers.jpg").img-rounded.img-responsive.img-panel
             .col-md-3.col-sm-6.col-xs-12
                 +panel("Tiramisu Cupcakes", "success")
-                  div.imagewrapper
+                  div.imagewrapper.main-panel
                     img(src="./images/products/chicken_gyros.jpg").img-rounded.img-responsive.img-panel
             .col-md-3.col-sm-6.col-xs-12
-                +panel("Boursin Roast Chicken", "primary")
-                  div.imagewrapper
+                +panel("Boursin Roast Chicken", "success")
+                  div.imagewrapper.main-panel
                       img(src="./images/products/lettuce_wrapped_fish_citrus_butter.jpg").img-rounded.img-responsive.img-panel
             .col-md-3.col-sm-6.col-xs-12
                 +panel("Lemon Berry Cheesecake", "success")
-                  div.imagewrapper
+                  div.imagewrapper.main-panel
                     img(src="./images/products/chicken_gyros.jpg").img-rounded.img-responsive.img-panel
-          .row
-            .col-md-6.col-sm-12.col-xs-12
-              +listGroup("links")
-                  +listItem("link1.html", "active")
-                      +listHeading Best Burgers
-                      +listText 
-                  +listItem("link2.html")
-                      +listHeading Eggs Orsini
-                        img(src="./images/thumbs/recip-586th.jpg").img-thumb.img-responsive 
-                      +listText 
-                        &nbsp;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                  +listItem("link3.html")
-                      +listHeading Smoked Trout and Pea Frittata
-                        img(src="./images/thumbs/recip-586th.jpg").img-thumb.img-responsive 
-                      +listText  
-                        &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
-                  +listItem("link3.html")
-                      +listHeading Chicken Parmisan
-                        img(src="./images/thumbs/recip-586th.jpg").img-thumb.img-responsive 
-                      +listText 
-                        &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
+        .row
+          .col-md-6.col-sm-12.col-xs-12
+            +listGroup("links")
+                +listItem("link1.html", "active")
+                    +listHeading Best Burgers
+                    +listText 
+                +listItem("link2.html")
+                    +listHeading Vietnamese Pork Peanut Burger
+                      img(src="./images/thumbs/recip-046th.jpg").img-thumb.img-responsive 
+                    +listText 
+                      &nbsp;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                +listItem("link3.html")
+                    +listHeading Mexican Chicken Burger
+                      img(src="./images/thumbs/recip-458th.jpg").img-thumb.img-responsive 
+                    +listText  
+                      &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
+                +listItem("link3.html")
+                    +listHeading Posh Venison Burger
+                      img(src="./images/thumbs/recip-517th.jpg").img-thumb.img-responsive 
+                    +listText 
+                      &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
+                +listItem("link3.html")
+                    +listHeading Juicy Lucy Burger
+                      img(src="./images/thumbs/recip-586th.jpg").img-thumb.img-responsive 
+                    +listText 
+                      &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
 
-            .col-md-6.col-sm-12.col-xs-12
-              +listGroup("links")
-                  +listItem("link1.html", "active")
-                      +listHeading Quick Meals for 1 or 2
-                      +listText 
-                  +listItem("link2.html")
-                      +listHeading Eggs Orsini
-                        img(src="./images/thumbs/recip-586th.jpg").img-thumb.img-responsive 
-                      +listText 
-                        &nbsp;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-                  +listItem("link3.html")
-                      +listHeading Smoked Trout and Pea Frittata
-                        img(src="./images/thumbs/recip-586th.jpg").img-thumb.img-responsive 
-                      +listText  
-                        &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
-                  +listItem("link3.html")
-                      +listHeading Chicken Parmisan
-                        img(src="./images/thumbs/recip-586th.jpg").img-thumb.img-responsive 
-                      +listText 
-                        &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
-                       
-
+          .col-md-6.col-sm-12.col-xs-12
+            +listGroup("links")
+                +listItem("link1.html", "active")
+                    +listHeading Quick Meals for 1 or 2
+                    +listText 
+                +listItem("link2.html")
+                    +listHeading Eggs Orsini
+                      img(src="./images/thumbs/recip-600th.jpg").img-thumb.img-responsive 
+                    +listText 
+                      &nbsp;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+                +listItem("link3.html")
+                    +listHeading Smoked Trout and Pea Frittata
+                      img(src="./images/thumbs/recip-627th.jpg").img-thumb.img-responsive 
+                    +listText  
+                      &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
+                +listItem("link3.html")
+                    +listHeading Chicken Parmisan
+                      img(src="./images/thumbs/recip-425th.jpg").img-thumb.img-responsive 
+                    +listText 
+                      &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
+                +listItem("link4.html")
+                    +listHeading Tamarind Glaxed Tuna
+                      img(src="./images/thumbs/recip-587th.jpg").img-thumb.img-responsive 
+                    +listText 
+                      &nbsp;Inspired by Mexican cuisine, this burger is extremely juicy and packs a bit of a kick!
+        .row
+          hr
+          div.sub-section
+            h3 Here are a few more ideas you may want to consider for a quick meal:
+          .col-md-2.col-sm-4.col-xs-6
+              +panel("Bramley Apple Fool", "info")
+                div.imagewrapper.small-panel
+                  img(src="./images/products/bramley_apple_yoghurt_fool.jpg").img-rounded.img-responsive.img-panel-small
+          .col-md-2.col-sm-4.col-xs-6
+              +panel("Spiced Duck Breast", "info")
+                div.imagewrapper.small-panel
+                  img(src="./images/products/spiced_duck_breast_plum_chutney.jpg").img-rounded.img-responsive.img-panel-small
+          .col-md-2.col-sm-4.col-xs-6
+              +panel("Passion Panna Cotta", "info")
+                div.imagewrapper.small-panel
+                  img(src="./images/products/passion_fruit_panna_cotta.jpg").img-rounded.img-responsive.img-panel-small
+          .col-md-2.col-sm-4.col-xs-6
+              +panel("Apple Meringue Tart", "info")
+                div.imagewrapper.small-panel
+                  img(src="./images/products/apple_meringue_tart.jpg").img-rounded.img-responsive.img-panel-small
+          .col-md-2.col-sm-4.col-xs-6
+              +panel("Parmesan Schnitzel", "info")
+                div.imagewrapper.small-panel
+                  img(src="./images/products/parmesan_veal_schnitzel.jpg").img-rounded.img-responsive.img-panel-small
+          .col-md-2.col-sm-4.col-xs-6
+              +panel("Strawberry Jalousie", "info")
+                div.imagewrapper.small-panel
+                  img(src="./images/products/strawberry_jalousie.jpg").img-rounded.img-responsive.img-panel-small
 
 include footer
