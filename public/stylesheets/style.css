@@ -157,3 +157,13 @@ h1 {
 .service-image-left > center > img,.service-image-right > center > img{
 	max-height: 300px;
 }
+
+.img-panel {
+	max-height: 200px;
+}
+
+.img-thumb {
+	float: left;
+	padding: 10px;
+	vertical-align: top;
+}
