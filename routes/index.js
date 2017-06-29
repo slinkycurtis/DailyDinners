@@ -6,7 +6,9 @@ var multer = require('multer');
 var upload = multer({ dest: 'uploads/' }); 
 var fs = require('fs'); 
 var AWS = require('aws-sdk'); 
-var _config = require('../config/config');
+//var _config = require('../config/config');
+var aws_access_key_id = process.env.AWS_ACCESS_KEY_ID;
+var aws_secret_access_key = process.env.AWS_SECRET_ACCESS_KEY;
 
 //Number of recipes to display each page
 var pageLimit = 50;
@@ -65,7 +67,7 @@ router.post('/upload', upload.single('product'), function(req, res, next){
         if(err){ return 
             res.render('upload', {title : 'Upload Image', message : { type: 'danger', messages : [ 'Failed uploading image. 1x001']}}); 
             } else { //pipe to s3 
-                AWS.config.update({accessKeyId: _config.aws_access_key_id, secretAccessKey: _config.aws_secret_access_key}); // here is where the config.js file comes in with your credentials 
+                AWS.config.update({accessKeyId: aws_access_key_id, secretAccessKey: aws_secret_access_key}); // here is where the config.js file comes in with your credentials 
                 var fileBuffer = fs.readFileSync(appRoot + '/uploads/' + req.file.originalname); // we need to turn the file into something we can pass over to s3 
                 var s3 = new AWS.S3(); 
                 var s3_param = { Bucket: 'daily-dinners-prod', Key: req.file.originalname, Expires: 60, //expires set till the image is no longer cached 
