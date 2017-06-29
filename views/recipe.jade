@@ -29,14 +29,16 @@ html( lang="en" )
                                 div.product-rating 
                                     +ratings(recipeItem.Ratings_alt)
 
-                                    hr
-                                    div.btn-group.Wishlist
-                                        button.btn.btn-success Add to Wishlist
+                                    // hr
+                                    // div.btn-group.Wishlist
+                                    //    button.btn.btn-success Add to Wishlist
                             div.col-md-2
                                 div
-                                    p Prep time: #{recipeItem.Time}
-                                    p Serves: #{recipeItem.Serves}
-                                    p Difficulty: #{recipeItem.Difficulty}
+                                    div.spacer
+                                    div.useful-info
+                                        p Prep time: #{recipeItem.Time}
+                                        p Serves: #{recipeItem.Serves}
+                                        p Difficulty: #{recipeItem.Difficulty}
 
 
                 div.container-fluid
@@ -44,18 +46,18 @@ html( lang="en" )
                         ul#myTab.nav.nav-tabs.nav_tabs
                             li.active
                                 a(href="#service-one" data-toggle="tab") INSTRUCTIONS
-                            li
-                                a(href="#service-two" data-toggle="tab") NUTRITIONAL INFO
-                            li
-                                a(href="#service-three" data-toggle="tab") REVIEWS
+                            // li
+                            //    a(href="#service-two" data-toggle="tab") NUTRITIONAL INFO
+                            // li
+                            //    a(href="#service-three" data-toggle="tab") REVIEWS
                         div#myTabContent.tab-content
                             div#service-one.tab-pane.fade.in.active
                                 section.container.product-info
                                     span!= recipeInstructions
-                            div#service-two.tab-pane.fade
-                                section.container
-                                    span!= details
-                            div#service-three.tab-pane.fade
-                                section.container
+                            // div#service-two.tab-pane.fade
+                            //    section.container
+                            //        span!= details
+                            // div#service-three.tab-pane.fade
+                            //    section.container
                         hr
 include footer

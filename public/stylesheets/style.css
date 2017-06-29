@@ -229,3 +229,12 @@ h1 {
 .search-box {
 	float: right;
 }
+.spacer {
+	min-height: 45px;
+}
+
+.useful-info {
+	background-color: #fcf2ef;
+	margin: 5px;
+	padding: 5px;
+}
