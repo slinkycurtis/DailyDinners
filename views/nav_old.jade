@@ -1,0 +1,20 @@
+div
+    center   
+        img(src="./images/dailydinners-logo.jpg").img-rounded.img-responsive
+        p
+        .container
+            +nav("", "dropdown_menu", "default")
+                +nav_item( "/", "active") Home
+                +nav_item_dropdown( "#" )( label="Recipes" )
+                    +nav_item ( "/recipelist?page=1" ) All
+                    +nav_item ( "#" ) Occasions
+                    +nav_item ( "#" ) Recipe Search
+                +nav_item_dropdown( "#" )( label="Special Diets" )
+                    +nav_item ( "/meat?page=1" ) Meat
+                    +nav_item ( "/vegetarian?page=1" ) Vegetarian
+                    +nav_item ( "/fish?page=1" ) Fish
+                    +nav_item ( "/dairy?page=1" ) Dairy
+                +nav_item( "/sweet?page=1" ) Sweets
+                +nav_item_dropdown( "#" )( label="About Us" )
+                    +nav_item ( "#" ) Facebook
+                    +nav_item ( "#" ) Twitter

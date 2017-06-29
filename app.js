@@ -41,6 +41,9 @@ module.exports = mongoose.model('Recipes', recipeModelSchema);*/
 
 var index = require('./routes/index');
 
+//Global Vars 
+global.appRoot = path.resolve(__dirname);
+
 var app = express();
 
 // view engine setup

@@ -17,6 +17,15 @@ mixin nav(name, id, style)
 mixin nav_item(href, active)
     li(class=active): a( href=href )
         block
+
+mixin nav_search
+    form(role='search',method="post",action="/recipeSearch").navbar-form.navbar-left
+          div.form-group.search-box
+            input(type='text',placeholder='Recipe Search' name='searchText').form-control
+            | &nbsp;
+            button(type='submit').btn.btn-default Search
+
+            
  
 mixin nav_item_dropdown(href, active)
     li(class=["dropdown", active])

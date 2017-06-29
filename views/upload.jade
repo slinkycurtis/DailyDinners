@@ -1,0 +1,8 @@
+extends layout 
+block content 
+	h1 S3 image upload
+	form( id="uploadForm" enctype="multipart/form-data" action="/upload" method="post") 
+		label File
+			input(type="file" name="product") 
+			br 
+			input(type="submit" value="Upload Image" name="submit")

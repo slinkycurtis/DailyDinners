@@ -1,0 +1,39 @@
+include mixins
+doctype
+html( lang="en" )
+    include head
+    body(style="padding-bottom:10rem;")
+    include nav
+    .container
+      block content
+        .jumbotron.search-banner
+            h1
+                span Search Results
+            p
+                span.sub-heading Here are the results of your recipe search
+
+        table.table.table-striped
+            thead
+                tr
+                    th Image
+                    th Title
+                    th Type
+                    th Difficulty
+                    th Diet
+                    th Time
+            tbody
+                each recipe, i in recipelist
+                    tr
+                        td
+                            img(src="./images/thumbs/#{recipe.Image}.jpg").img-rounded.img-responsive
+                        td
+                            - recipeString = recipe.RecipeID.substr(6)
+                            a(href="/recipe?recipe=#{recipeString}")= recipe.Title
+                        td= recipe.Type 
+                        td= recipe.Difficulty
+                        td= recipe.Diets
+                        td= recipe.Time
+
+include footer
+
+
